@@ -4,11 +4,11 @@ const Sidebar = () => {
         <div className="app-brand demo">
           <a href="index.html" className="app-brand-link">
             <span className="app-brand-logo demo">
-              <span className="text-primary">
+              {/* <span className="text-primary">
                 Logo
-              </span>
+              </span> */}
             </span>
-            <span className="app-brand-text demo menu-text fw-bold ms-2">Sneat</span>
+            <span className="app-brand-text demo menu-text fw-bold ms-2">Admin</span>
           </a>
 
           <a href="javascript:void(0);" className="layout-menu-toggle menu-link text-large ms-auto">
