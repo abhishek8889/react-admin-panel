@@ -5,20 +5,14 @@ import NavbarComp from "./Navbar";
 const AdminLayout = ({children}) => {
     return (
         <>
-        <div className="layout-wrapper layout-content-navbar">
-            <div className="layout-container">
-                <Sidebar />
-                <div className="layout-page">
-                    <NavbarComp/>
-                    <div classNameName="content-wrapper">
-                        {children}
-                        <Footer/>
-                        <div classNameName="content-backdrop fade"></div>
-                    </div>
-                </div>
+        <Sidebar />
+        <main className="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
+            <NavbarComp />
+            <div className="container-fluid py-2">
+                {children}
+                < Footer />
             </div>
-            <div className="layout-overlay layout-menu-toggle"></div>
-        </div>
+        </main>
         </>
     );
 }
