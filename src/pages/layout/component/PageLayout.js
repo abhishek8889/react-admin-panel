@@ -1,9 +1,9 @@
 import React from "react";
 import AdminLayout from './AdminLayout';
 
-const PageLayout = ({ title , subTitle , children }) => {
+const PageLayout = ({ title , subTitle ,breadcrumbs,children }) => {
     return (
-        <AdminLayout>
+        <AdminLayout breadcrumbs={breadcrumbs}>
             <div className="row">
                 <div className="ms-3">
                     <h3 className="mb-0 h4 font-weight-bolder">{ title }</h3>

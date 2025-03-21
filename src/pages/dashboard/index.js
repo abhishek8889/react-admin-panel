@@ -1,17 +1,25 @@
 import React from "react";
 import AdminLayout from '../layout/component/AdminLayout';
-
+import PageLayout from "../layout/component/PageLayout";
+import { Table } from "react-bootstrap";
+import DashboardCard from "../../components/dashboardCard";
 const Dashboard = () => {
+  const title = 'Dashboard';
+  const subtitle =  'Welcome to the dashboard.';
+  
+
   return (
     <>
-      <AdminLayout>
+      <PageLayout title={title} subTitle={subtitle}>
+          {/* <Table title={tableTile}></Table> */}
+          <DashboardCard></DashboardCard>
+          <DashboardCard></DashboardCard>
+          <DashboardCard></DashboardCard>
+          <DashboardCard></DashboardCard>
+      </PageLayout>
+      {/* <AdminLayout>
         <div className="row">
-          <div className="ms-3">
-            <h3 className="mb-0 h4 font-weight-bolder">Dashboard</h3>
-            <p className="mb-4">
-              Check the sales, value and bounce rate by country.
-            </p>
-          </div>
+        
           <div className="col-xl-3 col-sm-6 mb-xl-0 mb-4">
             <div className="card">
               <div className="card-header p-2 ps-3">
@@ -490,7 +498,7 @@ const Dashboard = () => {
             </div>
           </div>
         </div>
-      </AdminLayout>
+      </AdminLayout> */}
     </>
   );
 }
