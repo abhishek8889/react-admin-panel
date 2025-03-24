@@ -1,0 +1,15 @@
+
+/* .dropdown-list {
+    background-color: #333;
+    border-radius: 5px;
+    padding: 5px 10px;
+  } */
+  
+  .nav-item .nav-link {
+    padding: 5px 10px;
+  }
+  
+  .rotate-180 {
+    transform: rotate(180deg);
+    transition: transform 0.3s ease;
+  }
