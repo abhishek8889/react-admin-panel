@@ -1,13 +1,13 @@
 import React, { useState } from "react";
-
+import {submitForm} from "../../../utils/formHandling";
 
 const FormBox = ({title}) => {
-
+    
     const [formData, setFormData] = useState({
-       
         email: '',
         password: '',
-        address : ''
+        address : '',
+        image : ''
     });
 
     const handleOnChange = (e) => {
@@ -17,10 +17,25 @@ const FormBox = ({title}) => {
         }));
     }
 
+    const handleFileChange = (e) => {
+        setFormData((prevData) => ({
+            ...prevData,
+            [e.target.name]: e.target.files[0], 
+        }));
+    }
+
     const handleSubmit = (e) => {
         e.preventDefault();
-        
-        console.log(formData);
+        const apiObj  = {
+            url: `${process.env.REACT_APP_API_ENDPOINT}check-first`,
+            method: 'post',
+            headers: {
+                "Content-Type": "multipart/form-data",
+            },
+            successBox: '#successBox',
+            data: formData
+        }
+        submitForm(apiObj);
     }
 
     return (
@@ -33,23 +48,32 @@ const FormBox = ({title}) => {
                         </div>
                     </div>
                     <div className="card-body px-0 pb-2">
-                        <form class="p-4"  onSubmit={handleSubmit}>
-                            <input type="hidden" name="url" value="http://localhost:3000/submit-form"/>
+                        <form class="p-4" onSubmit={handleSubmit}>
                             <div class="form-row ">
                                 <div class="form-group col-md-6">
                                     <label for="inputEmail4">Email</label>
                                     <input type="email" class="form-control" id="inputEmail4" placeholder="Email" name="email" onChange={handleOnChange} />
+                                     <div class="text text-danger text-sm my-2 error-message" style={{display: "none"}}></div>
                                 </div>
-                                <div class="form-group col-md-6">
+                                <div class="form-group col-md-6 mt-3">
                                     <label for="inputPassword4">Password</label>
                                     <input type="password" class="form-control" id="inputPassword4" name="password" placeholder="Password" onChange={handleOnChange} />
+                                    <div class="text text-danger text-sm my-2 error-message" style={{display:"none"}}></div>
                                 </div>
                             </div>
-                            <div class="form-group col-md-6">
+                            <div class="form-group col-md-6 mt-3">
                                 <label for="inputAddress">Address</label>
                                 <input type="text" class="form-control" id="inputAddress" name="address" placeholder="1234 Main St" onChange={handleOnChange} />
+                                <div class="text text-danger my-2 text-sm error-message" style={{display:"none"}}></div>
                             </div>
-                            <button type="submit"  class="btn bg-dark text-white mt-3">Sign in</button>
+
+                            <div class="form-group col-md-6 mt-3">
+                                <label for="inputImg">Upload Image</label>
+                                <input type="file" class="form-control" id="inputImg" name="image"  onChange={handleFileChange} />
+                                <div class="text text-danger my-2 text-sm error-message" style={{display:"none"}}></div>
+                            </div>
+
+                            <button type="submit"  class="btn bg-dark text-white mt-3">Submit</button>
                         </form>
                     </div>
                 </div>
@@ -57,6 +81,5 @@ const FormBox = ({title}) => {
         </div>
     );
 }
-
 
 export default FormBox;

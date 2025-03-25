@@ -1,5 +1,6 @@
 import React from "react";
 import AdminLayout from './AdminLayout';
+import { ToastContainer } from 'react-toastify';
 
 const PageLayout = ({ title , subTitle ,breadcrumbs,children }) => {
     return (
@@ -14,6 +15,18 @@ const PageLayout = ({ title , subTitle ,breadcrumbs,children }) => {
                 {/* Render the passed content */}
                 {children}
             </div>
+            <ToastContainer
+                position="top-right"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick={false}
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                theme="light"
+            />
         </AdminLayout>
     );
 }

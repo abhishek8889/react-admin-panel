@@ -34,7 +34,27 @@ const Sidebar = () => {
           }
         ],
         dropdown:true
+      },
+      {
+        main: {
+          title: 'Users',
+          icon: 'group'
+        },
+        options: [
+          {
+            title: 'Create new',
+            icon: 'create',
+            path:'/posts/create-new'
+          },
+          {
+            title: 'List',
+            icon: 'table_view',
+            path:'/users'
+          }
+        ],
+        dropdown:true
       }
+
     ];
   
 
