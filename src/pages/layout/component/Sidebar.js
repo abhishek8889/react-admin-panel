@@ -25,7 +25,7 @@ const Sidebar = () => {
           {
             title: 'Create new',
             icon: 'create',
-            path:'/posts/create-post'
+            path:'/posts/create-new'
           },
           {
             title: 'List',

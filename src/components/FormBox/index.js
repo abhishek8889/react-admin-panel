@@ -13,8 +13,7 @@ const FormBox = ({title}) => {
                         </div>
                     </div>
                     <div className="card-body px-0 pb-2">
-
-                        <form  >
+                        <form class="p-4">
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                 <label for="inputEmail4">Email</label>
@@ -33,8 +32,7 @@ const FormBox = ({title}) => {
                                 <label for="inputAddress2">Address 2</label>
                                 <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor" />
                             </div>
-                            
-                            <button type="submit" class="btn btn-primary">Sign in</button>
+                            <button type="submit" class="btn bg-dark text-white mt-3">Sign in</button>
                         </form>
                     </div>
                 </div>

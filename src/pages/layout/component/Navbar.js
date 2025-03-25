@@ -10,11 +10,14 @@ const NavbarComp = ({breadcrumbs = {} }) => {
             <li className="breadcrumb-item text-sm">
               <Link className="opacity-5 text-dark"  to="/"> Dashboard </Link>
             </li>
-            {breadcrumbs.title ? (
-              <li className="breadcrumb-item text-sm text-dark active" aria-current="page">
-                {breadcrumbs.title}
-              </li> 
-            ) : null}
+            {
+              breadcrumbs && breadcrumbs.length > 0 && breadcrumbs.map((data,index) => {
+                return (
+                  <li className="breadcrumb-item text-sm text-dark active" aria-current="page">
+                    <Link className="opacity-5 text-dark"  to={data.url}> {data.title}  </Link>
+                  </li> 
+                )})
+            }
           </ol>
         </nav>
         <div className="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">

@@ -5,10 +5,16 @@ import FormBox from '../../components/FormBox';
 const CreateNewPost = () => {
     const title = 'New Post';
     const subtitle =  'create new post here';
-    const breadcrumbs = {
-        // 'title' : 'posts',
-        // 'url' : '/posts'
-    }
+    const breadcrumbs = [
+        {
+            'title' : 'posts',
+            'url' : '/posts'
+        },
+        {
+            'title' : 'create',
+            'url' : '/posts/create-new'
+        }        
+    ]
     const formTitle = 'Fill the form to create new post';
     return (
         <>

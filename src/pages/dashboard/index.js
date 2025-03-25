@@ -6,7 +6,8 @@ import DashboardCard from "../../components/dashboardCard";
 const Dashboard = () => {
   const title = 'Dashboard';
   const subtitle =  'Welcome to the dashboard.';
-  
+
+
   const DashboardCardData = [
     {
       "title" : "$53k",
@@ -32,12 +33,11 @@ const Dashboard = () => {
   ]
   return (
     <>
-      <PageLayout title={title} subTitle={subtitle}>
+      <PageLayout title={title} subTitle={subtitle} >
         {DashboardCardData && DashboardCardData.map((data,index) => {
           return <DashboardCard key={index} title={data.title} subTitle={subtitle} icon={data.icon} cardFooter={data.cardFooter} cardFooterText={data.cardFooterText} />
         })}
       </PageLayout>
-      
     </>
   );
 }
