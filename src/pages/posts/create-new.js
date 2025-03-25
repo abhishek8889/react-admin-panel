@@ -1,7 +1,8 @@
 import React from "react";
 import PageLayout from '../layout/component/PageLayout';
 // import {submitForm} from '../../utils/common';
-import FormBox from '../../components/FormBox';
+import FormBox from './partials/formBox';
+
 const CreateNewPost = () => {
     const title = 'New Post';
     const subtitle =  'create new post here';
