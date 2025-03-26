@@ -34,9 +34,49 @@ export const submitForm = (requestData ,validationRules= []) => {
 }
 
 
+// export const fetchFromApi =  (requestData) => {
+//     return axios(requestData)
+//         .then(function (response) {
+//             if(response.status === 200 && response.data.success === true){
+//                 // console.log(response.data)
+//                 return response.data;
+//             }
+//         }).catch((error) => {
+//             if (error.response) {
+//                 console.error("Error Response Data:", error.response.data);
+//                 console.error("Error Status:", error.response.status);
+//                 console.error("Error Headers:", error.response.headers);
+//             } else if (error.request) {
+//                 console.error("No Response:", error.request);
+//             } else {
+//                 console.error("Error Message:", error.message);
+//             }
+//         });
+// }
+
+
 export const fetchFromApi = (requestData) => {
-    
-}
+    return axios(requestData)
+      .then((response) => {
+        if (response.status === 200 && response.data.success === true) {
+            // console.log(response.data);
+            return response.data;
+        }
+        throw new Error("Unexpected response status or data structure.");
+      })
+      .catch((error) => {
+        if (error.response) {
+          console.error("Error Response Data:", error.response.data);
+          console.error("Error Status:", error.response.status);
+          console.error("Error Headers:", error.response.headers);
+        } else if (error.request) {
+          console.error("No Response:", error.request);
+        } else {
+          console.error("Error Message:", error.message);
+        }
+        throw error;
+      });
+  };
 
 //  :::::::: Toast Messages ::::::::
 

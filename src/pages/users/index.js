@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import PageLayout from '../layout/component/PageLayout';
 import Table from '../../components/table';
 import {fetchFromApi} from '../../utils/formHandling';
-
+import { AllCommunityModule, ModuleRegistry } from 'ag-grid-community'; 
+import { AgGridReact } from 'ag-grid-react'; 
 
 const Users = () => {
   const title = 'Users';
@@ -17,22 +18,47 @@ const Users = () => {
 
   const [tableData, setTableData] = useState([])
 
-  // useState(() => {
-  //   const endpoint = `${process.env.REACT_APP_API_ENDPOINT}users` ;
-  //   const requestData ={
-  //     url:endpoint,
-  //     method: 'GET'
-  //   };
+  useState(() => {
+    const fetchData = async () => {
+      const endpoint = `${process.env.REACT_APP_API_ENDPOINT}users-listing` ;
+      const requestData = {
+        url:endpoint,
+        method: 'GET'
+      };
+      const result = await fetchFromApi(requestData);
+      setTableData(result.data);
+    }
+    fetchData();
+  },[]);
 
-  //   fetchFromApi('users').then(res => {
-  //     setTableData(res.data)
-  //   })
-  // });
+  const tableColoumns = [
+    {
+      'title' : 'ID',
+      'field' : 'id'
+    },
+    {
+      'title' : 'Name',
+      'field' : 'name'
+    },
+    {
+      'title' : 'Email',
+      'field' : 'email'
+    },
+    {
+      'title' : 'Contact',
+      'field' : 'phone'
+    },
+    {
+      'title' : 'Created At',
+      'field' : 'created_at'
+    }
+  ];
+  
 
   return (
     <>
         <PageLayout title={title} subTitle={subtitle} breadcrumbs={breadcrumbs}>
-            <Table title={tableTile} tableData={tableData}></Table>
+          <Table title={tableTile} tableData={tableData} coloumns={tableColoumns}></Table>
         </PageLayout>
     </>
   );
