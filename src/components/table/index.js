@@ -1,7 +1,7 @@
 import React from "react";
 
-const Table = ({title , tableData , coloumns}) =>{ 
-    console.log(tableData);
+const Table = ({title , tableData , coloumns , option}) =>{ 
+    
     return (
         <div className="row">
             <div className="col-12">
@@ -12,6 +12,14 @@ const Table = ({title , tableData , coloumns}) =>{
                 </div>
                 </div>
                 <div className="card-body px-0 pb-2">
+                {option && option.search === true && (
+                   <form className="form-inline">
+                        <div className="form-group mx-sm-3 mb-2">
+                            <input type="text" className="form-control" id="inputPassword2" placeholder="Search here" />
+                        </div>
+                        <button type="submit" className="btn bg-dark text-white ">Search</button>
+                    </form>
+                )}
                 <div className="table-responsive p-0">
                     <table className="table align-items-center mb-0">
                         <thead>
@@ -34,7 +42,7 @@ const Table = ({title , tableData , coloumns}) =>{
                                             {coloumns &&  coloumns.length > 0 && 
                                                 coloumns.map((coloumn , coloumnIndex) => {
                                                     return (
-                                                        <td key={coloumnIndex} className="align-middle text-center">
+                                                        <td key={coloumnIndex} className="text-start ">
                                                             {data[coloumn.field] || "N/A"}
                                                         </td>
                                                     );

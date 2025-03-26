@@ -54,11 +54,18 @@ const Users = () => {
     }
   ];
   
+  const tableOption = {
+    search : true,
+    pagination : true,
+    pageSize : 10,
+    pageSizeOptions : [10,20,30,40,50],
+    coloumns : tableColoumns,
+  }
 
   return (
     <>
         <PageLayout title={title} subTitle={subtitle} breadcrumbs={breadcrumbs}>
-          <Table title={tableTile} tableData={tableData} coloumns={tableColoumns}></Table>
+          <Table title={tableTile} tableData={tableData} coloumns={tableColoumns} option={tableOption}></Table>
         </PageLayout>
     </>
   );
